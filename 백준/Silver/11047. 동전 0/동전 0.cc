@@ -1,3 +1,4 @@
+------------------------------------------------------------------------------------------------------------- sol 1
 #include <iostream>
 #include<algorithm>
 #include<vector>
@@ -46,3 +47,36 @@ int main() {
         }
 	}
 }
+
+------------------------------------------------------------------------------------------------------------- sol 2
+// 더 보기 좋지만 하나하나 카운트하는 방법
+
+#include <iostream>
+#include<algorithm>
+#include<vector>
+
+using namespace std;
+
+int main() {
+    cin.tie(NULL);
+    ios_base::sync_with_stdio(false);
+	int n;
+	long long k, ans = 0;
+	cin >> n >> k;
+	vector<long long> v(n);
+	for (int i = 0; i < n; i++) {
+		cin >> v[i];
+	}
+	sort(v.rbegin(), v.rend());
+	for (int i = 0; i < n; i++) {
+		while (k - v[i] >= 0) { //더 간단하지만 하나하나 카운트
+			ans++;
+			k -= v[i];
+		}
+	}
+	cout << ans << '\n';
+}
+
+
+
+
